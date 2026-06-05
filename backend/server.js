@@ -2,14 +2,13 @@ import dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
 
-// ✅ POINT TO BACKEND .env (YOUR CASE)
-const envPath = path.resolve(process.cwd(), "backend", ".env");
+const envPath = path.resolve(process.cwd(), ".env");
 
 if (fs.existsSync(envPath)) {
   dotenv.config({ path: envPath });
-  console.log("[ENV] Loaded backend/.env successfully");
+  console.log("[ENV] Loaded .env successfully");
 } else {
-  console.log("[ENV ERROR] backend/.env not found!");
+  console.log("[ENV ERROR] .env not found!");
 }
 
 import { connectDatabase } from "./src/config/db.js";
@@ -24,7 +23,6 @@ async function startServer() {
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`[SERVER] Running on port ${PORT}`);
-
   });
 }
 
